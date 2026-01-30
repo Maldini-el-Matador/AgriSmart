@@ -34,11 +34,11 @@ st.markdown("""
     }
     
     .main {
-        background-color: #F4F7F6;
+        background-color: #222429;
     }
     
     .stApp {
-        background-color: #F4F7F6;
+        background-color: #222429;
     }
     
     /* Sidebar Styling */
@@ -467,7 +467,7 @@ st.markdown("### 🎛️ Analysis Filters")
 col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
-    region = st.selectbox("🗺️ Region (Agro-Climatic Zone)", list(IFS_RECOMMENDATIONS.keys()))
+    region = st.selectbox("🗺️ Region (Climatic Zone)", list(IFS_RECOMMENDATIONS.keys()))
 with col2:
     soil_type = st.selectbox("🏔️ Soil Type", SOIL_TYPES)
 with col3:
@@ -529,11 +529,11 @@ if uploaded_file is not None:
                 <strong>🤖 AI Insight:</strong> {disease_result['message']}
             </div>
             <div class="confidence-meter">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div style="bacground:transparent;display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                     <span><strong>Confidence Score</strong></span>
-                    <span style="color: #2E7D32; font-weight: 700;">{confidence}%</span>
+                    <span style="color: #7d6f2e; font-weight: 700;">{confidence}%</span>
                 </div>
-                <div style="background: #C8E6C9; border-radius: 5px; overflow: hidden;">
+                <div style="background: #7d6f2e; border-radius: 5px; overflow: hidden;">
                     <div class="confidence-bar" style="width: {confidence}%;"></div>
                 </div>
             </div>
@@ -569,7 +569,7 @@ if uploaded_file is not None:
             <div class="ai-insight">
                 <p><strong>🔄 Farming Systems:</strong><br>{ifs_rec['systems']}</p>
             </div>
-            <div style="background: #E8F5E9; padding: 1rem; border-radius: 10px; margin-top: 1rem;">
+            <div style="padding: 1rem; border-radius: 10px; margin-top: 1rem;">
                 <strong>💡 Expert Advice:</strong><br>
                 {ifs_rec['description']}
             </div>
