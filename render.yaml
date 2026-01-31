@@ -1,0 +1,23 @@
+# Render Blueprint for AgriSmart backend
+# This file configures both the PostgreSQL database and the FastAPI backend
+
+databases:
+  - name: agrismart-db
+    databaseName: agrismart
+    user: agrismart
+    plan: free
+
+services:
+  - type: web
+    name: agrismart-backend
+    runtime: python
+    buildCommand: pip install -r backend/api/requirements.txt
+    startCommand: python -m uvicorn backend.api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHONPATH
+        value: .
+      - key: DATABASE_URL
+        fromDatabase:
+          name: agrismart-db
+          property: connectionString
+    plan: free
